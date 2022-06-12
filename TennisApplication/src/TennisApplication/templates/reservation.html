@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h1>Reservation</h1>
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Court Number</th>
+          <th scope="col">Hour</th>
+          <th scope="col">Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for hour in range(8, 23) %}
+          {% if hour in reservations %}
+<!--            <tr class="bg-danger"> <th scope="row">1</th> <th scope="row">{{hour}}</th> <th scope="row">taken</th> </tr>-->
+            <tr class="bg-danger"> </th> <th scope="row">{{hour}}</th> <th scope="row">taken</th> </tr>
+          {% else %}
+<!--            <tr class="bg-success"><th scope="row">1</th> <th scope="row">{{hour}}</th> <th scope="row">free</th> </tr>-->
+            <tr class="bg-success"> </th> <th scope="row">{{hour}}</th> <th scope="row">free</th> </tr>
+          {% endif %}
+        {% endfor %}
+      </tbody>
+    </table>
+{% endblock content %}
